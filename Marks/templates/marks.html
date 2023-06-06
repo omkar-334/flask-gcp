@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LHS Marks</title>
+        <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+form {
+    display: inline-block;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="submit"] {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+input[type="submit"] {
+    padding: 5px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+table {
+    border-collapse: collapse;
+    margin: 5px 0;
+}
+thead{ font-weight: bold; }
+th, td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #1c1818;
+    font-weight: normal;
+}
+th {
+    background-color: #f2f2f2;
+}
+h1, h2 {
+    text-align: center;
+}
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+tr:hover            { background-color: #77bfe9;}
+.out{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+[class ^="con_"]{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+@media (max-width: 900px){
+    .out{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex:1
+    }
+
+    [class ^="con_"]{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+      .con_left, .con_right {
+      flex-direction: column;
+      align-items: center;
+      flex-grow:5;
+        }
+
+}
+
+        </style>
+    </head>
+    <body>
+        <fieldset align="center"><legend><b><u>Details Entry</u></b></legend>
+       <form method="POST" style="display:inline-block;">
+
+        <div class="out">
+
+            <div class="con_left">&emsp;
+            <div><b>Select file: </b></div>&emsp;
+            <div><input type="radio" name="options" id="option1" value={{file1}} checked="checked"> {{file1}}</div>&emsp;
+            <div><input type="radio" name="options" id="option2" value={{file2}}> {{file2}}</div>&emsp;
+            <div><input type="radio" name="options" id="option3" value={{file3}}> {{file3}}</div>&emsp;
+            <div><input type="radio" name="options" id="option4" value={{file4}}> {{file4}}</div> &emsp;&emsp;&emsp;
+            <div><b>File Name -&nbsp; </b>{{option}}</div>
+        </div>
+
+        <br>
+
+            <div class="con_right">
+                <div style="display:flex"><label for="studentadm"> &emsp;Admission :&nbsp;</label>
+                <input name="studentadm" id="studentadm" /></div>&emsp;
+
+                <div style="display:flex"><label for="studentname">Name :&nbsp;</label>
+                <input name="studentname" id="studentname" /></div>&emsp;
+
+                <div style="display:flex"><label for="studentphone">Cell : &nbsp;   </label>
+                <input name="studentphone" id="studentphone" /></div>&emsp;
+
+                <div><input type="submit"></div>
+            </div>
+
+            </div>
+
+        </fieldset>
+        </form>
+        <div align="center">
+            <table>
+                <h1>
+                    {% for table in tables %}
+                    <h2><b>{{titles[loop.index]}}</b></h2>
+                    {{ table|safe }}
+                    {% endfor %}
+                </h1>
+            </table>
+        </div></fieldset>
+        <br>
+        {% block content %}
+        <div align="center"  style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+            <table>
+                <h1>
+                    <b>{{contable | safe}}</b>
+                </h1>
+            </table>
+        </div>
+        {% endblock %}
+    </body>
+</html>
