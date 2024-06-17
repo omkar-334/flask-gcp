@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LHS Fees</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/fees.css') }}"">
+    </head>
+    <body>
+        <fieldset align="center"><legend><b><u>Details Entry</u></b></legend>
+       <form method="POST" style="display:inline-block;">
+
+        <div class="out">
+
+            <div class="con_left">&emsp;
+                <div><b>Select file: </b></div>&emsp;
+                {% for index, name in enumerate(names) %}
+                    <div>
+                        <input type="radio" name="options" id="option" value="{{name}}" {% if index == 0 %}checked{% endif %}> {{name}}
+                    </div>&emsp;
+                {% endfor %}
+                <div><b>File Name -&nbsp; </b>{{option}}</div>
+        </div>
+
+        <br>
+
+            <div class="con_right">
+                <div style="display:flex"><label for="adm"> &emsp;Admission :&nbsp;</label>
+                <input name="adm" id="adm" /></div>&emsp;
+
+                <div style="display:flex"><label for="name">Name :&nbsp;</label>
+                <input name="name" id="name" /></div>&emsp;
+
+                <div style="display:flex"><label for="cell">Cell : &nbsp;   </label>
+                <input name="cell" id="cell" /></div>&emsp;
+
+                <div><input type="submit"></div>
+            </div>
+
+            </div>
+
+        </fieldset>
+        </form>
+        <div align="center">
+            <table>
+                <h1>
+                <!--Displaying the converted table-->
+                     {% for table in main %}
+                    <h2><b>{{titles[loop.index]}}</b></h2>
+                    {{ table|safe }}
+                    {% endfor %}
+                </h1>
+            </table>
+        </div>
+        <div align="center">
+            <table>
+                <h1>
+                    <!--Displaying the converted table-->
+                         {% for table in over %}
+                        <h2><b>{{titles[loop.index]}}</b></h2>
+                        {{ table|safe }}
+                        {% endfor %}
+                    </h1>
+            </table>
+        </div>
+        <div align="center">
+            <table>
+                <h1>
+                    <!--Displaying the converted table-->
+                         {% for table in old %}
+                        <h2><b>{{titles[loop.index]}}</b></h2>
+                        {{ table|safe }}
+                        {% endfor %}
+                    </h1>
+            </table>
+        </div>
+        <div align="center">
+            <table>
+                <h1>
+                    <!--Displaying the converted table-->
+                         {% for table in new %}
+                        <h2><b>{{titles[loop.index]}}</b></h2>
+                        {{ table|safe }}
+                        {% endfor %}
+                    </h1>
+            </table>
+        </div>
+        <div align="center">
+            <table>
+                <h1>
+                    <!--Displaying the converted table-->
+                         {% for table in dfe %}
+                        <h2><b>{{titles[loop.index]}}</b></h2>
+                        {{ table|safe }}
+                        {% endfor %}
+                    </h1>
+            </table>
+        </div>
+    </body>
+</html>
