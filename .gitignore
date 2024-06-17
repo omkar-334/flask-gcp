@@ -1,0 +1,14 @@
+Fees/.venv/
+Home/.venv/
+Marks/.venv/
+
+Fees/__pycache__/
+Home/__pycache__/
+Marks/__pycache__/
+
+Marks/markscopy1.xlsx
+Marks/markscopy2.xlsx
+
+Fees/feescopy1.xlsx
+Fees/feescopy2.xlsx
+
