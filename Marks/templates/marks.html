@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LHS Marks</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/marks.css') }}""
+</head>
+    <body>
+        <fieldset align="center"><legend><b><u>Details Entry</u></b></legend>
+       <form method="POST" style="display:inline-block;">
+
+        <br>
+
+            <div class="con_right">
+                <div style="display:flex"><label for="adm"> &emsp;Admission :&nbsp;</label>
+                <input name="adm" id="adm" /></div>&emsp;
+
+                <div style="display:flex"><label for="name">Name :&nbsp;</label>
+                <input name="name" id="name" /></div>&emsp;
+
+                <div style="display:flex"><label for="cell">Cell : &nbsp;   </label>
+                <input name="cell" id="cell" /></div>&emsp;
+
+                <div><input type="submit"></div>
+            </div>
+
+            </div>
+
+        </fieldset>
+        </form>
+        <div align="center">
+            <table>
+                <h1>
+                    {% for table in main %}
+                    <h2><b>{{titles[loop.index]}}</b></h2>
+                    {{ table|safe }}
+                    {% endfor %}
+                </h1>
+            </table>
+        </div></fieldset>
+	<h4 align='center'>Previous Year - 2023-2024</h4>
+        <br>
+        {% block content %}
+        <div align="center"  style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+            <table>
+                    <b>{{marks | safe}}</b>
+            </table>
+        </div>
+        {% endblock %}
+    </body>
+</html>
